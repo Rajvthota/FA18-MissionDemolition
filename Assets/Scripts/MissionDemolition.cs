@@ -10,9 +10,8 @@ public enum GameMode
     levelEnd
 }
 
-
 public class MissionDemolition : MonoBehaviour {
-    static private MissionDemolition S; 
+static private MissionDemolition S; 
 
 [Header(" Set in Inspector")]
     public Text             uitLevel;
@@ -40,10 +39,10 @@ public class MissionDemolition : MonoBehaviour {
     {
         if (castle != null )
         {
-            Destroy( castle );
+            Destroy(castle);
         }
 
-        GameObject[] gos = GameObject.FindGameObjectsWithTag(" Projectile");
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject pTemp in gos)
         {
             Destroy(pTemp);
@@ -53,7 +52,7 @@ public class MissionDemolition : MonoBehaviour {
         castle.transform.position = castlePos;
         shotsTaken = 0;
 
-        SwitchView(" Show Both");
+        SwitchView("Show Both");
         ProjectileLine.S.Clear();
 
         Goal.goalMet = false;
@@ -73,8 +72,8 @@ public class MissionDemolition : MonoBehaviour {
         if ( (mode == GameMode.playing) && Goal.goalMet )
         {
             mode = GameMode.levelEnd; 
-           SwitchView(" Show Both");
-            Invoke(" NextLevel", 2f);
+           SwitchView("Show Both");
+            Invoke("NextLevel", 2f);
         }
     }
 
@@ -106,7 +105,7 @@ public class MissionDemolition : MonoBehaviour {
                 uitButton.text = "Show Both";
                 break;
             case "Show Both":
-                FollowCam.POI = GameObject.Find(" ViewBoth");
+                FollowCam.POI = GameObject.Find("ViewBoth");
                 uitButton.text = "Show Slingshot";
                 break;
         }

@@ -17,9 +17,12 @@ public class Slingshot : MonoBehaviour {
 
     static public Vector3 LAUNCH_POS
     {
-        get {
-            if (S == null ) return Vector3. zero;
-            return S.launchPos; } }
+        get
+        {
+            if (S == null) return Vector3.zero;
+            return S.launchPos;
+        }
+    }
 
     private void Awake()
     {
@@ -78,7 +81,8 @@ public class Slingshot : MonoBehaviour {
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
             projectile = null;
-            FollowCam.POI = projectile; projectile = null;
+            FollowCam.POI = projectile;
+            projectile = null;
             MissionDemolition.ShotFired();
             ProjectileLine.S.poi = projectile;
 

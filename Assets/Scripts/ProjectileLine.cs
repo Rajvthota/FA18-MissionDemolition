@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileLine : MonoBehaviour {
     static public ProjectileLine S;
 
-    [Header(" Set in Inspector")]
+    [Header("Set in Inspector")]
     public float minDist = 0.1f;
 
     private LineRenderer line;
@@ -15,9 +15,9 @@ public class ProjectileLine : MonoBehaviour {
     void Awake()
     {
         S = this;
-        line = GetComponent < LineRenderer >();
+        line = GetComponent <LineRenderer>();
         line.enabled = false;
-        points = new List < Vector3 >();
+        points = new List <Vector3>();
     }
 
     public GameObject poi
@@ -29,7 +29,7 @@ public class ProjectileLine : MonoBehaviour {
             _poi = value; if (_poi != null)
             {
                 line.enabled = false;
-                points = new List < Vector3 >();
+                points = new List <Vector3>();
                 AddPoint();
             }
         }
@@ -45,7 +45,7 @@ public class ProjectileLine : MonoBehaviour {
     public void AddPoint()
     {
         Vector3 pt = _poi.transform.position;
-        if (points.Count > 0 && (pt-lastPoint).magnitude < minDist)
+        if (points.Count > 0 && (pt-lastPoint).magnitude<minDist)
         {
             return;
         }
@@ -73,8 +73,8 @@ public class ProjectileLine : MonoBehaviour {
         {
             if (points == null)
             {
-                return ( Vector3. zero ); }
-            return ( points[ points.Count-1] );
+                return (Vector3.zero ); }
+            return ( points[points.Count-1] );
         }
     }
 
